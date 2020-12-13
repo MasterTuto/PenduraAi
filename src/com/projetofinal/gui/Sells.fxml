@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.SellsController">
+   <children>
+      <HBox>
+         <children>
+            <ImageView fx:id="imgBtnHome" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
+               <image>
+                  <Image url="@../../../../assets/home.png" />
+               </image>
+            </ImageView>
+            <Label text="PenduraAí" HBox.hgrow="NEVER">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <TabPane fx:id="tpCategorias" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab text="Vendas">
+            <content>
+                  <HBox>
+                     <children>
+                        <VBox alignment="CENTER" prefWidth="50.0" HBox.hgrow="NEVER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addVenda" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#remVenda" prefHeight="25.0" prefWidth="25.0" text="-">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <TableView fx:id="tvVendas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="351.0" prefWidth="560.0" HBox.hgrow="ALWAYS">
+                          <columns>
+                            <TableColumn fx:id="tcVendasCodigo" minWidth="0.0" prefWidth="56.0" text="Código" />
+                              <TableColumn fx:id="tcVendasCliente" prefWidth="67.0" text="Cliente" />
+                            <TableColumn fx:id="tcVendasValor" prefWidth="54.0" text="Valor" />
+                              <TableColumn fx:id="tcVendasData" text="Data" />
+                              <TableColumn fx:id="tcVendasVencimento" prefWidth="103.0" text="Vencimento" />
+                              <TableColumn fx:id="tcVendasPagamento" prefWidth="139.0" text="Forma de Pagamento" />
+                          </columns>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </TableView>
+                     </children>
+                  </HBox>
+            </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/vendas.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+            <Tab text="Produtos">
+               <content>
+                  <HBox>
+                     <children>
+                        <VBox alignment="CENTER" prefWidth="50.0" HBox.hgrow="NEVER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addProduto" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#remProduto" prefHeight="25.0" prefWidth="25.0" text="-">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <TableView fx:id="tvProdutos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="351.0" prefWidth="560.0" HBox.hgrow="ALWAYS">
+                           <columns>
+                              <TableColumn fx:id="tcProdutosCodigo" minWidth="0.0" prefWidth="56.0" text="Código" />
+                              <TableColumn fx:id="tcProdutosNome" prefWidth="67.0" text="Nome" />
+                              <TableColumn fx:id="tcProdutosPreco" prefWidth="54.0" text="Preço" />
+                              <TableColumn fx:id="tcProdutosCategoria" text="Categoria" />
+                              <TableColumn fx:id="tcProdutosMarca" prefWidth="103.0" text="Marca" />
+                              <TableColumn fx:id="tcProdutosTipo" prefWidth="139.0" text="Tipo" />
+                           </columns>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </TableView>
+                     </children>
+                  </HBox>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/produtos.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab text="Clientes">
+               <content>
+                  <HBox>
+                     <children>
+                        <VBox alignment="CENTER" prefWidth="50.0" HBox.hgrow="NEVER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addCliente" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#remCliente" prefHeight="25.0" prefWidth="25.0" text="-">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <TableView fx:id="tvClientes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="351.0" prefWidth="560.0" HBox.hgrow="ALWAYS">
+                           <columns>
+                              <TableColumn fx:id="tcClientesCodigo" minWidth="0.0" prefWidth="56.0" text="Código" />
+                              <TableColumn fx:id="tcClientesNome" prefWidth="67.0" text="Nome" />
+                              <TableColumn fx:id="tcClientesCpf" prefWidth="54.0" text="CPF" />
+                              <TableColumn fx:id="tcClientesEmail" prefWidth="87.0" text="E-mail" />
+                              <TableColumn fx:id="tcClientesTelefone" prefWidth="96.0" text="Telefone" />
+                              <TableColumn fx:id="tcClientesEndereco" prefWidth="89.0" text="Endereço" />
+                              <TableColumn fx:id="tcClientesLimite" prefWidth="62.0" text="Limite" />
+                           </columns>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </TableView>
+                     </children>
+                  </HBox>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/clientes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab text="Resumo">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/balanco.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
