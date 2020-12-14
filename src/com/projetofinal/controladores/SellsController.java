@@ -67,7 +67,7 @@ public class SellsController {
     public TableView<Produto> tvProdutos;
     
     @FXML
-    public TableColumn<Produto,Integer> tvProdutosCodigo;
+    public TableColumn<Produto,Integer> tcProdutosCodigo;
     
     @FXML
     public TableColumn<Produto,String> tcProdutosNome;
@@ -135,8 +135,12 @@ public class SellsController {
         stage.setScene(scene);
     }
 
-    public void addVenda(ActionEvent event) {
-
+    public void addVenda(ActionEvent event) throws Exception {
+        Stage vendaStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/AddVenda.fxml"));
+        Scene scene = new Scene(root);
+        vendaStage.setScene(scene);
+        vendaStage.show();
     }
 
     public void remVenda(ActionEvent event) {
@@ -171,7 +175,7 @@ public class SellsController {
 
     public void setProdutos() {
         tvProdutos.setItems(colecionadorDeProdutos.getProdutos());
-        tvProdutosCodigo.setCellValueFactory( new PropertyValueFactory<Produto, Integer>("codigo") );
+        tcProdutosCodigo.setCellValueFactory( new PropertyValueFactory<Produto, Integer>("codigo") );
         tcProdutosNome.setCellValueFactory( new PropertyValueFactory<Produto, String>("nome") );
         tcProdutosPreco.setCellValueFactory( new PropertyValueFactory<Produto, Double>("preco") );
         tcProdutosCategoria.setCellValueFactory( new PropertyValueFactory<Produto, String>("categoria") );

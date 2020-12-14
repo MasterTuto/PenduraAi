@@ -47,7 +47,10 @@ public class Compra {
 	}
 
 	public String getCliente() {
-		return cliente.get().getNome() + " " + cliente.get().getSobrenome();
+		if (cliente != null)
+			return cliente.get().getNome() + " " + cliente.get().getSobrenome();
+		else
+			return "";
 	}
 
 	public String getData() {
