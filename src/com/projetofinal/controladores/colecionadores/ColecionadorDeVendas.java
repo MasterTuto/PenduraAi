@@ -1,27 +1,32 @@
 package com.projetofinal.controladores.colecionadores;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import com.projetofinal.classes.Cliente;
 import com.projetofinal.classes.Compra;
 import com.projetofinal.classes.Endereco;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 public class ColecionadorDeVendas {
-    public ObservableList<Compra> vendas = FXCollections.observableArrayList();
+    public static ColecionadorDeVendas colecionadorDeVendas;
+    public ArrayList<Compra> vendas = new ArrayList<>();
 
     public ColecionadorDeVendas() {
         populateForTests();
+    }
+    
+    public static ColecionadorDeVendas getInstance() {
+        if (colecionadorDeVendas == null) {
+            colecionadorDeVendas = new ColecionadorDeVendas();
+        }
+
+        return colecionadorDeVendas;
     }
 
     private void populateForTests() {
         vendas.add(
             new Compra(
-            2019,
             new Cliente(
-                2010,
                 123213123123L,
                 "Breno",
                 Calendar.getInstance(),
@@ -30,7 +35,6 @@ public class ColecionadorDeVendas {
                 "77988082313",
                 "77988667459",
                 new Endereco(
-                    20313,
                     "13",
                     "Barra Nova",
                     "45.120-000",
@@ -49,8 +53,12 @@ public class ColecionadorDeVendas {
         );
     }
 
-    public ObservableList<Compra> getVendas() {
+    public ArrayList<Compra> getVendas() {
         return vendas;
+    }
+
+    public void addVenda(Compra venda) {
+        vendas.add(venda);
     }
     
 }

@@ -5,12 +5,17 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 public class Pagamento {
+	private static int counter = 0;
 	private SimpleIntegerProperty codigo, meio, numeroDeParcelas;
 	private SimpleDoubleProperty valor;
 	private SimpleObjectProperty<Compra> compra;
 
-	public Pagamento(int codigo, int meio, int numeroDeParcelas, double valor, Compra compra) {
-		this.codigo= new SimpleIntegerProperty(codigo);
+	public Pagamento() {
+		this.codigo= new SimpleIntegerProperty(counter++);
+	}
+
+	public Pagamento(int meio, int numeroDeParcelas, double valor, Compra compra) {
+		this.codigo= new SimpleIntegerProperty(counter++);
 		this.meio= new SimpleIntegerProperty(meio);
 		this.numeroDeParcelas= new SimpleIntegerProperty(numeroDeParcelas);
 		this.valor= new SimpleDoubleProperty(valor);

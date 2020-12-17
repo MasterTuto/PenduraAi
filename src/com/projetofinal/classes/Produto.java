@@ -5,15 +5,20 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Produto {
-	private SimpleIntegerProperty codigo, categoria, marca, tipo;
-	private SimpleStringProperty nome;
+	public static int counter = 0;
+	private SimpleIntegerProperty codigo;
+	private SimpleStringProperty nome, categoria, marca, tipo;;
 	private SimpleDoubleProperty preco;
 
-	public Produto(int codigo, int categoria, int marca, int tipo, String nome, double preco) {
-		this.codigo= new SimpleIntegerProperty(codigo);
-		this.categoria= new SimpleIntegerProperty(categoria);
-		this.marca= new SimpleIntegerProperty(marca);
-		this.tipo= new SimpleIntegerProperty(tipo);
+	public Produto() {
+		this.codigo= new SimpleIntegerProperty(counter++);
+	}
+
+	public Produto(String categoria, String marca, String tipo, String nome, double preco) {
+		this.codigo= new SimpleIntegerProperty(counter++);
+		this.categoria= new SimpleStringProperty(categoria);
+		this.marca= new SimpleStringProperty(marca);
+		this.tipo= new SimpleStringProperty(tipo);
 		this.nome= new SimpleStringProperty(nome);
 		this.preco= new SimpleDoubleProperty(preco);
 	}
@@ -25,15 +30,15 @@ public class Produto {
 	}
 
 	public String getCategoria() {
-		return Integer.toString(categoria.get());
+		return categoria.get();
 	}
 
 	public String getMarca() {
-		return Integer.toString(marca.get());
+		return marca.get();
 	}
 
 	public String getTipo() {
-		return Integer.toString(tipo.get());
+		return tipo.get();
 	}
 
 	public String getNome() {
@@ -46,15 +51,15 @@ public class Produto {
 
 	// Setters
 
-	public void setCategoria(int novaCategoria) {
+	public void setCategoria(String novaCategoria) {
 		categoria.set(novaCategoria);
 	}
 
-	public void setMarca(int novaMarca) {
+	public void setMarca(String novaMarca) {
 		marca.set(novaMarca);
 	}
 
-	public void setTipo(int novoTipo) {
+	public void setTipo(String novoTipo) {
 		tipo.set(novoTipo);
 	}
 
@@ -65,4 +70,5 @@ public class Produto {
 	public void setPreco(double novoPreco) {
 		preco.set(novoPreco);
 	}
+
 }

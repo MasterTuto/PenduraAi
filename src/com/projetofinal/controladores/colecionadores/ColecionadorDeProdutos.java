@@ -1,22 +1,30 @@
 package com.projetofinal.controladores.colecionadores;
 
+import java.util.ArrayList;
+
 import com.projetofinal.classes.Produto;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 public class ColecionadorDeProdutos {
-    public ObservableList<Produto> produtos = FXCollections.observableArrayList();
+    public static ColecionadorDeProdutos colecionadorDeProdutos;
+    public ArrayList<Produto> produtos = new ArrayList<>();
 
     public ColecionadorDeProdutos() {
         populateForTests();
     }
 
-    private void populateForTests() {
-        produtos.add(new Produto(21244, 1231, 12, 123, "Cangaia", 12.3));
+    public static ColecionadorDeProdutos getInstance() {
+        if (colecionadorDeProdutos == null) {
+            colecionadorDeProdutos = new ColecionadorDeProdutos();
+        }
+
+        return colecionadorDeProdutos;
     }
 
-    public ObservableList<Produto> getProdutos() {
+    private void populateForTests() {
+        produtos.add(new Produto("Informática", "Notebook", "Lenovo", "NOTEBOOK IDEAPAD S145", 2800.00));
+    }
+
+    public ArrayList<Produto> getProdutos() {
         return produtos;
     }
 
@@ -28,8 +36,8 @@ public class ColecionadorDeProdutos {
         produtos.add(produto);
     }
 
-    public Produto addProduto(int codigo, int categoria, int marca, int tipo, String nome, double preco) {
-        Produto p = new Produto(codigo, categoria, marca, tipo, nome, preco);
+    public Produto addProduto(String categoria, String marca, String tipo, String nome, double preco) {
+        Produto p = new Produto(categoria, marca, tipo, nome, preco);
 
         produtos.add(p);
         return p;

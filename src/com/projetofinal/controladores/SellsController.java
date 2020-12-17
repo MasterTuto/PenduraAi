@@ -3,16 +3,20 @@ package com.projetofinal.controladores;
 
 import com.projetofinal.classes.Cliente;
 import com.projetofinal.classes.Compra;
+import com.projetofinal.classes.Endereco;
 import com.projetofinal.classes.Produto;
 import com.projetofinal.controladores.colecionadores.ColecionadorDeClientes;
 import com.projetofinal.controladores.colecionadores.ColecionadorDeProdutos;
 import com.projetofinal.controladores.colecionadores.ColecionadorDeVendas;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -22,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class SellsController {
@@ -95,7 +100,7 @@ public class SellsController {
     public TableColumn<Cliente,String> tcClientesNome;
 
     @FXML
-    public TableColumn<Cliente,String> tcClientesCpf;
+    public TableColumn<Cliente,Long> tcClientesCpf;
 
     @FXML
     public TableColumn<Cliente,String> tcClientesEmail;
@@ -104,14 +109,14 @@ public class SellsController {
     public TableColumn<Cliente,String> tcClientesTelefone;
 
     @FXML
-    public TableColumn<Cliente,String> tcClientesEndereco;
+    public TableColumn<Cliente,Endereco> tcClientesEndereco;
 
     @FXML
-    public TableColumn<Cliente,String> tcClientesLimite;
+    public TableColumn<Cliente,Double> tcClientesLimite;
 
-    public ColecionadorDeClientes colecionadorDeClientes = new ColecionadorDeClientes();
-    public ColecionadorDeVendas   colecionadorDeVendas   = new ColecionadorDeVendas();
-    public ColecionadorDeProdutos colecionadorDeProdutos = new ColecionadorDeProdutos();
+    public ColecionadorDeClientes colecionadorDeClientes = ColecionadorDeClientes.getInstance();
+    public ColecionadorDeVendas   colecionadorDeVendas   = ColecionadorDeVendas.getInstance();
+    public ColecionadorDeProdutos colecionadorDeProdutos = ColecionadorDeProdutos.getInstance();
 
     public void changePaneTo(int option) {
         SingleSelectionModel<Tab> selection = tpCategorias.getSelectionModel();
@@ -123,24 +128,41 @@ public class SellsController {
     }
 
     public void goHome(MouseEvent event) throws Exception {
-        double width, height;
-
         ImageView botaoOrigem = (ImageView)event.getSource();
-        Stage stage = (Stage)botaoOrigem.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        Scene currentScene = (Scene)botaoOrigem.getScene();
 
         Parent novoConteudo = FXMLLoader.load(getClass().getResource("../gui/Main.fxml"));
-        Scene scene = new Scene(novoConteudo, height, width);
-        stage.setScene(scene);
+
+        currentScene.setRoot(novoConteudo);
     }
 
     public void addVenda(ActionEvent event) throws Exception {
         Stage vendaStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/AddVenda.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/CadastrarVenda.fxml"));
+        Parent root = loader.load();
+        
+        CadastrarVendaController cvc = loader.getController();
+
         Scene scene = new Scene(root);
+
+        Button sourceBtn = (Button)event.getSource();
+        Stage sourceStage = (Stage)sourceBtn.getScene().getWindow();
+
+        vendaStage.initOwner(sourceStage);
+        vendaStage.initModality(Modality.APPLICATION_MODAL);
+        vendaStage.setResizable(false);
         vendaStage.setScene(scene);
-        vendaStage.show();
+        vendaStage.showAndWait();
+
+        Compra venda = cvc.getCompra();
+        if (venda != null)
+            colecionadorDeVendas.addVenda(venda);
+        
+        ObservableList<Compra> vendas = FXCollections.observableArrayList();
+        for (Compra c: colecionadorDeVendas.getVendas())
+            vendas.add(c);
+
+        tvVendas.setItems(vendas);
     }
 
     public void remVenda(ActionEvent event) {
@@ -164,7 +186,11 @@ public class SellsController {
     }
 
     public void setVendas() {
-        tvVendas.setItems(colecionadorDeVendas.getVendas());
+        ObservableList<Compra> compras = FXCollections.observableArrayList();
+        for (Compra c: colecionadorDeVendas.getVendas())
+            compras.add(c);
+
+        tvVendas.setItems(compras);
         tcVendasCodigo.setCellValueFactory( new PropertyValueFactory<Compra, Integer>("codigo") );
         tcVendasCliente.setCellValueFactory( new PropertyValueFactory<Compra, String>("cliente") );
         tcVendasValor.setCellValueFactory( new PropertyValueFactory<Compra, Double>("total") );
@@ -174,7 +200,11 @@ public class SellsController {
     }
 
     public void setProdutos() {
-        tvProdutos.setItems(colecionadorDeProdutos.getProdutos());
+        ObservableList<Produto> produtos = FXCollections.observableArrayList();
+        for (Produto p: colecionadorDeProdutos.getProdutos())
+            produtos.add(p);
+
+        tvProdutos.setItems(produtos);
         tcProdutosCodigo.setCellValueFactory( new PropertyValueFactory<Produto, Integer>("codigo") );
         tcProdutosNome.setCellValueFactory( new PropertyValueFactory<Produto, String>("nome") );
         tcProdutosPreco.setCellValueFactory( new PropertyValueFactory<Produto, Double>("preco") );
@@ -184,14 +214,18 @@ public class SellsController {
     }
 
     public void setClientes() {
-        tvClientes.setItems(colecionadorDeClientes.getClientes());
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList();
+        for (Cliente c: colecionadorDeClientes.getClientes())
+            clientes.add(c);
+
+        tvClientes.setItems(clientes);
         tcClientesCodigo.setCellValueFactory( new PropertyValueFactory<Cliente, Integer>("codigo") );
-        tcClientesNome.setCellValueFactory( new PropertyValueFactory<Cliente, String>("nome") );
-        tcClientesCpf.setCellValueFactory( new PropertyValueFactory<Cliente, String>("total") );
-        tcClientesEmail.setCellValueFactory( new PropertyValueFactory<Cliente, String>("data") );
-        tcClientesTelefone.setCellValueFactory( new PropertyValueFactory<Cliente, String>("data") );
-        tcClientesEndereco.setCellValueFactory( new PropertyValueFactory<Cliente, String>("dataVencimento") );
-        tcClientesLimite.setCellValueFactory( new PropertyValueFactory<Cliente, String>("pagamento") );
+        tcClientesNome.setCellValueFactory( new PropertyValueFactory<Cliente, String>("nomeCompleto") );
+        tcClientesCpf.setCellValueFactory( new PropertyValueFactory<Cliente, Long>("cpf") );
+        tcClientesEmail.setCellValueFactory( new PropertyValueFactory<Cliente, String>("email") );
+        tcClientesTelefone.setCellValueFactory( new PropertyValueFactory<Cliente, String>("telefone") );
+        tcClientesEndereco.setCellValueFactory( new PropertyValueFactory<Cliente, Endereco>("endereco") );
+        tcClientesLimite.setCellValueFactory( new PropertyValueFactory<Cliente, Double>("limite") );
     }
 
     public void pesquisarVendas(ActionEvent e) {

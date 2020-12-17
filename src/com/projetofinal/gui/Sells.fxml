@@ -44,15 +44,29 @@
                      <children>
                         <VBox alignment="CENTER" prefWidth="50.0" HBox.hgrow="NEVER">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#addVenda" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#addVenda" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../assets/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#remVenda" prefHeight="25.0" prefWidth="25.0" text="-">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#remVenda" prefHeight="25.0" prefWidth="25.0" text="-">
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../assets/delete.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
                            </children>
                            <HBox.margin>
@@ -89,15 +103,29 @@
                      <children>
                         <VBox alignment="CENTER" prefWidth="50.0" HBox.hgrow="NEVER">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#addProduto" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#addProduto" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../assets/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#remProduto" prefHeight="25.0" prefWidth="25.0" text="-">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#remProduto" prefHeight="25.0" prefWidth="25.0" text="-">
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../assets/delete.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
                            </children>
                            <HBox.margin>
@@ -134,15 +162,29 @@
                      <children>
                         <VBox alignment="CENTER" prefWidth="50.0" HBox.hgrow="NEVER">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#addCliente" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#addCliente" prefHeight="25.0" prefWidth="25.0" text="+" VBox.vgrow="NEVER">
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../assets/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#remCliente" prefHeight="25.0" prefWidth="25.0" text="-">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#remCliente" prefHeight="25.0" prefWidth="25.0" text="-">
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../assets/delete.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
                            </children>
                            <HBox.margin>

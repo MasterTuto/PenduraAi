@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class MainController {
     @FXML
@@ -23,12 +22,11 @@ public class MainController {
 
     public void navegarDaMain(ActionEvent event) throws Exception {
         Button botaoOrigem = (Button)event.getSource();
-        Stage stage = (Stage)botaoOrigem.getScene().getWindow();
+        Scene sceneAtual = (Scene)botaoOrigem.getScene();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/Sells.fxml"));
         Parent novoConteudo = loader.load();
-        Scene scene = new Scene(novoConteudo);
-        stage.setScene(scene);
+        sceneAtual.setRoot(novoConteudo);
 
         SellsController sellsController = loader.getController();
         if (botaoOrigem.equals(btnVendas)) {

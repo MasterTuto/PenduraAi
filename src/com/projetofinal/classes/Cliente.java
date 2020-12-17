@@ -9,6 +9,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Cliente {
+	private static int counter = 0;
 	private SimpleIntegerProperty codigo;
 	private SimpleLongProperty cpf;
 	private SimpleObjectProperty<Calendar> dataNascimento;
@@ -16,10 +17,14 @@ public class Cliente {
 	private SimpleObjectProperty<Endereco> endereco;
 	private SimpleDoubleProperty limite;
 
-	public Cliente(int codigo, long cpf, String nome, Calendar dataNascimento, String sobrenome, String email, String telefone,
+	public Cliente() {
+		this.codigo= new SimpleIntegerProperty(counter++);
+	}
+
+	public Cliente(long cpf, String nome, Calendar dataNascimento, String sobrenome, String email, String telefone,
 				   String whatsapp, Endereco endereco, double limite) {
 
-		this.codigo= new SimpleIntegerProperty(codigo);
+		this.codigo= new SimpleIntegerProperty(counter++);
 		this.cpf= new SimpleLongProperty(cpf);
 		this.nome= new SimpleStringProperty(nome);
 		this.dataNascimento= new SimpleObjectProperty<>(dataNascimento);
@@ -34,6 +39,10 @@ public class Cliente {
 	// Getters
 	public int getCodigo() {
 		return codigo.get();
+	}
+
+	public String getNomeCompleto() {
+		return nome.get() + " " + sobrenome.get();
 	}
 
 	public long getCpf() {

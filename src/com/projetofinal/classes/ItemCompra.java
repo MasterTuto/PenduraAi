@@ -5,18 +5,23 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 public class ItemCompra {
+	private static int counter = 0;
 	private SimpleIntegerProperty codigo;
-	private SimpleObjectProperty<Compra> compra;
 	private SimpleObjectProperty<Produto> produto;
 	private SimpleDoubleProperty preco;
 	private SimpleIntegerProperty quantidade;
+	private SimpleDoubleProperty subtotal;
+
+	public ItemCompra() {
+		this.codigo= new SimpleIntegerProperty(counter++);
+	}
 	
-	public ItemCompra(int codigo, Compra compra, Produto produto, double preco, int quantidade) {
-		this.codigo= new SimpleIntegerProperty(codigo);
-		this.compra= new SimpleObjectProperty<>(compra);
+	public ItemCompra(Produto produto, double preco, int quantidade) {
+		this.codigo= new SimpleIntegerProperty(counter++);
 		this.produto= new SimpleObjectProperty<>(produto);
 		this.preco= new SimpleDoubleProperty(preco);
 		this.quantidade= new SimpleIntegerProperty(quantidade);
+		this.subtotal = new SimpleDoubleProperty(preco*quantidade);
 	}
 
 	// Getters
@@ -25,30 +30,30 @@ public class ItemCompra {
 		return codigo.get();
 	}
 
-	public Compra getCompra() {
-		return compra.get();
-	}
-
-	public Produto getProduto() {
+	public Produto getProdutoObj() {
 		return produto.get();
 	}
 
+	public String getProduto() {
+		return produto.get().getNome();
+	}
+
 	public double getPreco() {
-		return quantidade.get()*preco.get();
+		return preco.get();
 	}
 
 	public int getQuantidade() {
 		return quantidade.get();
 	}
 
+	public double getSubtotal() {
+		return subtotal.get();
+	}
+
 	// Setters
 
 	public void setCodigo(int codigo) {
 		this.codigo.set(codigo);
-	}
-
-	public void setCompra(Compra compra) {
-		this.compra.set(compra);
 	}
 
 	public void setProduto(Produto produto) {

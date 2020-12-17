@@ -4,11 +4,16 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Endereco {
+	private static int counter = 0;
 	private SimpleIntegerProperty codigo;
 	private SimpleStringProperty numeroCasa, rua, cep, bairro, municipio, estado;
 
-	public Endereco(int codigo, String numeroCasa, String rua, String cep, String bairro, String municipio, String estado) {
-		this.codigo= new SimpleIntegerProperty(codigo);
+	public Endereco() {
+		this.codigo= new SimpleIntegerProperty(counter++);
+	}
+
+	public Endereco(String numeroCasa, String rua, String cep, String bairro, String municipio, String estado) {
+		this.codigo= new SimpleIntegerProperty(counter++);
 		this.numeroCasa= new SimpleStringProperty(numeroCasa);
 		this.rua= new SimpleStringProperty(rua);
 		this.cep= new SimpleStringProperty(cep);
@@ -75,6 +80,7 @@ public class Endereco {
 
 	// Outros
 
+	@Override
 	public String toString() {
 		return rua + ", nº " + numeroCasa + ". " + bairro + ", " + municipio + " - " + estado;
 	}
