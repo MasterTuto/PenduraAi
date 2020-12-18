@@ -67,4 +67,8 @@ public class ItemCompra {
 	public void setQuantidade(int quantidade) {
 		this.quantidade.set(quantidade);
 	}
+
+	public void decrementarContador() {
+		counter--;
+	}
 }

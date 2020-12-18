@@ -156,4 +156,8 @@ public class Compra {
 
 		return nPagamento;
 	}
+
+	public void decrementarContador() {
+		counter--;
+	}
 }

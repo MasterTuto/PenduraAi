@@ -1,6 +1,8 @@
 package com.projetofinal.controladores;
 
 
+import java.io.IOException;
+
 import com.projetofinal.classes.Cliente;
 import com.projetofinal.classes.Compra;
 import com.projetofinal.classes.Endereco;
@@ -148,6 +150,7 @@ public class SellsController {
         Button sourceBtn = (Button)event.getSource();
         Stage sourceStage = (Stage)sourceBtn.getScene().getWindow();
 
+        vendaStage.setTitle("Cadastro de venda...");
         vendaStage.initOwner(sourceStage);
         vendaStage.initModality(Modality.APPLICATION_MODAL);
         vendaStage.setResizable(false);
@@ -169,15 +172,68 @@ public class SellsController {
 
     }
 
-    public void addProduto(ActionEvent event) {
+    public void addProduto(ActionEvent event) throws IOException {
+        Stage produtoStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/CadastrarProduto.fxml"));
+        Parent root = loader.load();
+        
+        CadastrarProdutoController cpc = loader.getController();
 
+        Scene scene = new Scene(root);
+
+        Button sourceBtn = (Button)event.getSource();
+        Stage sourceStage = (Stage)sourceBtn.getScene().getWindow();
+
+        produtoStage.setTitle("Cadastro de novo produto");
+        produtoStage.initOwner(sourceStage);
+        produtoStage.initModality(Modality.APPLICATION_MODAL);
+        produtoStage.setResizable(false);
+        produtoStage.setScene(scene);
+        produtoStage.showAndWait();
+
+        Produto produto = cpc.getProduto();
+        if (produto != null)
+            colecionadorDeProdutos.addProduto(produto);
+        
+        ObservableList<Produto> produtos = FXCollections.observableArrayList();
+        for (Produto c: colecionadorDeProdutos.getProdutos())
+            produtos.add(c);
+
+        tvProdutos.setItems(produtos);
     }
 
     public void remProduto(ActionEvent event) {
 
     }
 
-    public void addCliente(ActionEvent event) {
+    public void addCliente(ActionEvent event) throws IOException {
+        Stage produtoStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/CadastrarCliente.fxml"));
+        Parent root = loader.load();
+        
+        CadastrarClienteController ccc = loader.getController();
+
+        Scene scene = new Scene(root);
+
+        Button sourceBtn = (Button)event.getSource();
+        Stage sourceStage = (Stage)sourceBtn.getScene().getWindow();
+
+        produtoStage.setTitle("Cadastro de novo cliente");
+        produtoStage.initOwner(sourceStage);
+        produtoStage.initModality(Modality.APPLICATION_MODAL);
+        produtoStage.setResizable(false);
+        produtoStage.setScene(scene);
+        produtoStage.showAndWait();
+
+        Cliente cliente = ccc.getCliente();
+        if (cliente != null)
+            colecionadorDeClientes.addCliente(cliente);
+        
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList();
+        for (Cliente c: colecionadorDeClientes.getClientes())
+            clientes.add(c);
+
+        tvClientes.setItems(clientes);
 
     }
 

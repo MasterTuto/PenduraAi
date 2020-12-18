@@ -53,4 +53,8 @@ public class ColecionadorDeClientes {
         
         clientes.add(c);
     }
+
+	public void addCliente(Cliente cliente) {
+        clientes.add(cliente);
+	}
 }

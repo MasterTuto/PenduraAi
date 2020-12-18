@@ -19,6 +19,15 @@ public class Cliente {
 
 	public Cliente() {
 		this.codigo= new SimpleIntegerProperty(counter++);
+		this.cpf= new SimpleLongProperty(0);
+		this.nome= new SimpleStringProperty("");
+		this.dataNascimento= new SimpleObjectProperty<>(null);
+		this.sobrenome= new SimpleStringProperty("");
+		this.email= new SimpleStringProperty("");
+		this.telefone= new SimpleStringProperty("");
+		this.whatsapp= new SimpleStringProperty("");
+		this.endereco= new SimpleObjectProperty<>(null);
+		this.limite= new SimpleDoubleProperty(500.0);
 	}
 
 	public Cliente(long cpf, String nome, Calendar dataNascimento, String sobrenome, String email, String telefone,
@@ -119,5 +128,10 @@ public class Cliente {
 
 	public void setLimite(double novoLimite) {
 		limite.set(novoLimite);
+	}
+
+
+	public void decrementarContador() {
+		counter--;
 	}
 }

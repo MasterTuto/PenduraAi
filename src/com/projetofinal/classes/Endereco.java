@@ -84,4 +84,8 @@ public class Endereco {
 	public String toString() {
 		return rua + ", nº " + numeroCasa + ". " + bairro + ", " + municipio + " - " + estado;
 	}
+
+	public void decrementarContador() {
+		counter--;
+	}
 }

@@ -12,6 +12,11 @@ public class Produto {
 
 	public Produto() {
 		this.codigo= new SimpleIntegerProperty(counter++);
+		this.categoria= new SimpleStringProperty("");
+		this.marca= new SimpleStringProperty("");
+		this.tipo= new SimpleStringProperty("");
+		this.nome= new SimpleStringProperty("");
+		this.preco= new SimpleDoubleProperty(0.0);
 	}
 
 	public Produto(String categoria, String marca, String tipo, String nome, double preco) {
@@ -71,4 +76,7 @@ public class Produto {
 		preco.set(novoPreco);
 	}
 
+	public void decrementarContador() {
+		counter--;
+	}
 }

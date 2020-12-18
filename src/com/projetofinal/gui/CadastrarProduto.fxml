@@ -15,13 +15,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.CadastrarProdutoController">
    <bottom>
-      <ButtonBar prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <ButtonBar prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
         <buttons>
-          <Button cancelButton="true" defaultButton="true" mnemonicParsing="false" text="Cancelar" />
-            <Button layoutX="520.0" layoutY="18.0" mnemonicParsing="false" text="Salvar" />
+          <Button cancelButton="true" defaultButton="true" mnemonicParsing="false" onAction="#cancelarCadastro" text="Cancelar" />
+            <Button layoutX="520.0" layoutY="18.0" mnemonicParsing="false" onAction="#salvarProduto" text="Salvar" />
         </buttons>
          <BorderPane.margin>
             <Insets />
@@ -66,7 +65,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
                   <Label text="Nome do produto: " />
-                  <TextField HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfNome" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="6.0" />
                      </HBox.margin>
@@ -76,7 +75,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
                   <Label text="Preço:" />
-                  <TextField HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfPreco" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="6.0" />
                      </HBox.margin>
@@ -86,7 +85,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <children>
                   <Label text="Categoria: " />
-                  <TextField HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfCategoria" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="6.0" />
                      </HBox.margin>
@@ -96,7 +95,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <children>
                   <Label text="Marca:" />
-                  <TextField HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfMarca" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="6.0" />
                      </HBox.margin>
@@ -106,7 +105,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
                   <Label text="Tipo:" />
-                  <TextField HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfTipo" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="6.0" />
                      </HBox.margin>
