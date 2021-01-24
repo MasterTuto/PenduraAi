@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.StackedBarChart?>
@@ -20,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.SellsController">
+<VBox id="mainItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.SellsController">
    <children>
       <HBox>
          <children>
@@ -29,7 +30,7 @@
                   <Image url="@../../../../assets/home.png" />
                </image>
             </ImageView>
-            <Label text="PenduraAí" HBox.hgrow="NEVER">
+            <Label text="PenduraAí" textFill="#ffd54f" HBox.hgrow="NEVER">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
@@ -37,6 +38,14 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Label>
+            <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button contentDisplay="TEXT_ONLY" mnemonicParsing="false" onAction="#switchColorMode" text="Mudar para modo escuro" />
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </HBox>
          </children>
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -106,7 +115,7 @@
                                     <TableColumn fx:id="tcVendasPagamento" prefWidth="139.0" text="Forma de Pagamento" />
                                 </columns>
                               </TableView>
-                              <TextField fx:id="tfPesquisaVendas" onAction="#pesquisarEAtualizarVendas" promptText="Digite parte do nome do cliente, codigo ou vencimento..." style="-fx-background-radius: 50px;">
+                              <TextField fx:id="tfPesquisaVendas" onKeyTyped="#pesquisarVendas" promptText="Digite parte do nome do cliente, codigo ou vencimento...">
                                  <VBox.margin>
                                     <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                                  </VBox.margin>
@@ -153,6 +162,9 @@
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <Button contentDisplay="GRAPHIC_ONLY" layoutX="15.0" layoutY="205.0" mnemonicParsing="false" onAction="#mostrarInfoProduto" prefHeight="25.0" prefWidth="25.0" text="i">
                                  <graphic>
@@ -188,7 +200,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                            <children>
-                              <TableView fx:id="tvProdutos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="351.0" prefWidth="560.0">
+                              <TableView fx:id="tvProdutos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="351.0" prefWidth="560.0" VBox.vgrow="ALWAYS">
                                  <columns>
                                     <TableColumn fx:id="tcProdutosCodigo" minWidth="0.0" prefWidth="56.0" text="Código" />
                                     <TableColumn fx:id="tcProdutosNome" prefWidth="67.0" text="Nome" />
@@ -198,7 +210,7 @@
                                     <TableColumn fx:id="tcProdutosTipo" prefWidth="139.0" text="Tipo" />
                                  </columns>
                               </TableView>
-                              <TextField fx:id="tfPesquisaProduto" onAction="#pesquisarEAtualizarProdutos" promptText="Digite aqui parte do nome, codigo, categoria, marca ou tipo..." style="-fx-background-radius: 50px;">
+                              <TextField fx:id="tfPesquisaProduto" onKeyPressed="#pesquisarProdutos" promptText="Digite aqui parte do nome, codigo, categoria, marca ou tipo...">
                                  <VBox.margin>
                                     <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                                  </VBox.margin>
@@ -280,7 +292,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                            <children>
-                              <TableView fx:id="tvClientes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="351.0" prefWidth="560.0">
+                              <TableView fx:id="tvClientes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="351.0" prefWidth="560.0" VBox.vgrow="ALWAYS">
                                  <columns>
                                     <TableColumn fx:id="tcClientesCodigo" minWidth="0.0" prefWidth="56.0" text="Código" />
                                     <TableColumn fx:id="tcClientesNome" prefWidth="67.0" text="Nome" />
@@ -291,7 +303,7 @@
                                     <TableColumn fx:id="tcClientesLimite" prefWidth="62.0" text="Limite" />
                                  </columns>
                               </TableView>
-                              <TextField fx:id="tfPesquisaCliente" onAction="#pesquisarEAtualizarClientes" promptText="Digite parte do nome, cpf, email, telefone ou do endereço..." style="-fx-border-radius: 50px; -fx-background-radius: 50px;">
+                              <TextField fx:id="tfPesquisaCliente" onKeyPressed="#pesquisarClientes" promptText="Digite parte do nome, cpf, email, telefone ou do endereço..." VBox.vgrow="NEVER">
                                  <VBox.margin>
                                     <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                                  </VBox.margin>

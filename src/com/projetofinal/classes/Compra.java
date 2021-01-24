@@ -58,6 +58,10 @@ public class Compra {
 		else
 			return "";
 	}
+	
+	public Cliente getClienteObj() {
+		return cliente.get();
+	}
 
 	public String getData() {
 		return data.get();
@@ -147,8 +151,8 @@ public class Compra {
 			this.pagamento.set(nPagamento);
 	}
 
-	public Pagamento setPagamento(int meio, int numeroDeParcelas, double valor) {
-		Pagamento nPagamento = new Pagamento(meio, numeroDeParcelas, valor, this);
+	public Pagamento setPagamento(int meio, int numeroDeParcelas) {
+		Pagamento nPagamento = new Pagamento(meio, numeroDeParcelas, total.get(), this);
 		if (this.pagamento == null)
 			this.pagamento = new SimpleObjectProperty<Pagamento>(nPagamento);
 		else
@@ -160,4 +164,5 @@ public class Compra {
 	public void decrementarContador() {
 		counter--;
 	}
+
 }

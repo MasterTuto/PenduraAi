@@ -1,0 +1,213 @@
+/* BEGIN: ALL */
+#mainItem {
+    -fx-background-color: #424242;
+}
+/* END: */
+
+/* BEGIN: BUTTON BAR */
+
+.button-bar {
+    -fx-background-color: #222222;
+}
+
+/* END: BUTTON BAR */
+
+/* BEGIN: TAB PANE */
+.tab-pane *.tab-header-background {
+    -fx-background-color:  #424242;
+    -fx-effect: innershadow(two-pass-box , rgba(0,0,0,0.6) , 4, 0.0 , 0 , 0);
+}
+
+*.tab {
+    -fx-padding: 1em;
+    -fx-background-color:  #424242;
+    -fx-border-radius: 0px;
+}
+
+*.tab-label {
+    -fx-text-fill: #EEEEEE;
+}
+
+*.tab:selected {
+    -fx-background-color:  #757575;
+}
+
+/*  END: TAB PANE */
+
+/* BEGIN: LABEL */
+.label {
+    -fx-text-fill: #EEEEEE;
+}
+/* END: LABEL */
+
+/* BEGIN: BUTTON */
+
+.button {
+    -fx-background-color: #424242;
+    -fx-background-radius: 0px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #353535, 10, 0.3, 2, 2);
+    -fx-text-fill: #EEEEEE;
+}
+
+.button:hover {
+    -fx-background-color: #616161;
+}
+
+/* END: BUTTON */
+
+/* BEGIN: TABLE VIEW */
+
+
+.table-view {
+    -fx-border-width: 1px;
+    -fx-border-color: #353535;
+    -fx-background-color: #424242;
+
+}
+
+.table-column  {
+    -fx-background-color: #424242;
+    -fx-background-radius: 0px;
+    -fx-border-color: #fff0 #fff0  #000 #424242;
+    -fx-border-width:   10px    10px     1px    1px;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #424242;
+    -fx-effect: innershadow(two-pass-box , rgba(0,0,0,0.6) , 4, 0.0 , 0 , 0);
+}
+
+.table-view .cell {
+    -fx-background-color: #424242;
+    -fx-text-fill: #9E9E9E;
+}
+
+.table-view .cell:selected {
+    -fx-background-color: #757575;
+}
+
+.table-column:selected {
+    -fx-text-fill: #424242;
+    -fx-background-color: #757575;
+}
+
+/* END: TABLE VIEW */
+
+/* BEGIN: TEXT FIELD */
+.text-field {
+    -fx-background-color: #424242;
+    -fx-border-color: #fff0 #fff0  #212121 #fff0;
+    -fx-text-fill: #EEEEEE;
+}
+/* END: TEXT FIELD */
+
+/* BEGIN: DATEPICKER */
+.date-picker, .date-picker-display-node {
+    -fx-background-radius: 0px;
+    -fx-border-width: 0px;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #424242;
+    -fx-border-width: 0px 0px 0px 1px;
+    -fx-border-color: #EEEEEE;
+
+    -fx-background-image: url("../../../../assets/calendar.png");
+}
+
+.date-picker {
+    -fx-border-color: #212121;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-radius:0px ;
+    -fx-background-color: #EEEEEE;
+}
+
+.date-picker-popup {
+    -fx-text-fill: #EEEEEE;
+    -fx-background-color: #424242;
+    -fx-border-color: #212121;
+}
+
+.date-picker .cell {
+    -fx-background-color: #424242;
+    -fx-text-fill: #EEEEEE;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: #1783CC;
+}
+
+.date-picker .cell:focused {
+    -fx-background-color:#11659e;
+}
+
+.date-picker .cell .label {
+    -fx-text-fill: #EEEEEE;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #424242;
+}
+
+.date-picker-popup > * > .previous-month,
+.date-picker-popup > * > .next-month {
+    -fx-text-fill: #EEEEEE99;
+}
+
+.date-picker-popup > * > .week-number-cell {
+    -fx-background-color: #212121;
+}
+
+
+/* END: DATEPICKER */
+
+/* BEGIN: SEPARATOR */
+.separator {
+    -fx-fill: #212121;
+}
+
+/* END: SEPARATOR */
+
+/* BEGIN: CHOICEBOX */
+.choice-box {
+    -fx-background-color: #424242;
+    -fx-border-color: #eeeeee;
+    -fx-border-width: 1px;
+}
+
+.choice-box > * > .arrow {
+    -fx-background-color: #eeeeee;
+}
+
+.context-menu {
+    -fx-background-color: #424242;
+    -fx-text-fill: #EEEEEE;
+}
+
+.choice-box .cell {
+    -fx-background-color: #424242;
+    -fx-text-fill: #EEEEEE;
+}
+
+/* END: CHOICEBOX */
+
+/* BEGIN: CUSTOM */
+
+#precoDevendo {
+    -fx-fill-text: #FF8A65;
+}
+
+#precoPago {
+    -fx-fill-text: #66BB6A;
+}
+
+#preco {
+    -fx-fill-text: #E0E0E0;
+}
+
+/* END: CUSTOM */

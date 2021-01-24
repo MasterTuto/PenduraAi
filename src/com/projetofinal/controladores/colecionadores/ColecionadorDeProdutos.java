@@ -21,7 +21,20 @@ public class ColecionadorDeProdutos {
     }
 
     private void populateForTests() {
-        produtos.add(new Produto("Informática", "Notebook", "Lenovo", "NOTEBOOK IDEAPAD S145", 2800.00));
+        produtos.add(new Produto("INFORMATICA", "NOTEBOOK", "LENOVO", "NOTEBOOK IDEAPAD S145", 1500.00));
+        produtos.add(new Produto("INFORMATICA", "CELULAR", "ASUS", "SMT ROG PHONE", 800.00));
+        produtos.add(new Produto("ALIMENTO", "ARROZ", "DALON", "ARROZ DALON 1KG", 4.35));
+        produtos.add(new Produto("ALIMENTO", "ARROZ", "DONA MARIA", "ARROZ DONA MARIA 1KG", 5.25));
+        produtos.add(new Produto("ALIMENTO", "FEIJAO", "TIA MARTA", "FIJAO TIA MARTA", 6.39));
+        produtos.add(new Produto("BRINQUEDO", "BONECO", "LIVSTAR", "IRON MAN", 5.50));
+        produtos.add(new Produto("BRINQUEDO", "BONECO", "LIVSTAR", "BONECO RAUL GIL", 5.50));
+        produtos.add(new Produto("BRINQUEDO", "CARRO",  "LIVSTAR", "LUCCAS NETO BONECO", 5.50));
+        produtos.add(new Produto("PAPELARIA", "LIVRO", "EDITORA PRINCIPIS", "MAQUIAVEL - O PRINCIPE", 6.99));
+        produtos.add(new Produto("PAPELARIA", "LIVRO", "EDITORA INTRINSECA", "JOHN GREEN - O TEOREMA DE KATHERINES", 6.99));
+        produtos.add(new Produto("PAPELARIA", "LIVRO", "EDITORA BRASIL", "GEORGE ORWELL - 1984", 6.99));
+        produtos.add(new Produto("PAPELARIA", "LIVRO", "EDITORA MASSA", "ALDOUS HUXLEY - ADMIRAVEL MUNDO NOVO", 6.99));
+        produtos.add(new Produto("PAPELARIA", "PAPEL", "CHAMEX", "PAPEL CHAMEX 50G 500FLHS", 16.99));
+   
     }
 
     public ArrayList<Produto> getProdutos() {
@@ -41,5 +54,9 @@ public class ColecionadorDeProdutos {
 
         produtos.add(p);
         return p;
+    }
+
+    public void remova(Produto p) {
+        produtos.remove(p);
     }
 }

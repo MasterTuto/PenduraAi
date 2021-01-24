@@ -18,9 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.CadastrarVendaController">
+<BorderPane id="mainItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.CadastrarVendaController">
    <bottom>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
           <Button cancelButton="true" defaultButton="true" mnemonicParsing="false" onAction="#cancelarVenda" text="Cancelar" />
             <Button mnemonicParsing="false" onAction="#salvarVenda" text="Salvar" />
@@ -31,18 +31,18 @@
       </ButtonBar>
    </bottom>
    <left>
-      <VBox alignment="CENTER" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefWidth="160.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
             <Label text="TOTAL:" />
-            <Label fx:id="lblTotal" text="R$ 0,00" textFill="RED">
+            <Label fx:id="lblTotal" style="-fx-text-fill: #f44336;" text="R$ 0,00" textFill="RED">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#addProdutoParaVenda" prefHeight="80.0" prefWidth="80.0" text="ADICIONAR PRODUTO" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+            <Button fx:id="btnAdicionarProduto" contentDisplay="TOP" mnemonicParsing="false" onAction="#addProdutoParaVenda" prefHeight="80.0" prefWidth="80.0" text="ADICIONAR PRODUTO" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
@@ -59,7 +59,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#limparCliente" text="Remover">
+            <Button fx:id="btnLimparCliente" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#limparCliente" text="Remover">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -88,7 +88,7 @@
       </VBox>
    </left>
    <top>
-      <Label text="REGISTRO DE VENDA" textFill="RED" BorderPane.alignment="CENTER">
+      <Label id="#mainItem" style="-fx-text-fill: #f44336;" text="REGISTRO DE VENDA" textFill="RED" BorderPane.alignment="CENTER">
          <font>
             <Font name="Calibri Bold" size="20.0" />
          </font>
@@ -131,7 +131,7 @@
             <HBox GridPane.columnIndex="1">
                <children>
                   <TextField fx:id="tfClientes" promptText="Digite CPF ou parte do nome..." HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onAction="#pesquisarCliente" text="Pesquisar...">
+                  <Button fx:id="btnPesquisarCliente" mnemonicParsing="false" onAction="#pesquisarCliente" text="Pesquisar...">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

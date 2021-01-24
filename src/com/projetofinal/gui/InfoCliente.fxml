@@ -6,6 +6,8 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,7 +15,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="mainItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.CadastrarClienteController">
+<BorderPane id="mainItem" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.InfoClienteController">
    <left>
       <ImageView fitHeight="300.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
@@ -22,7 +24,7 @@
       </ImageView>
    </left>
    <top>
-      <Label style="-fx-text-fill: #f44336;" text="CADASTRO DE CLIENTE" textFill="RED" BorderPane.alignment="CENTER">
+      <Label style="-fx-text-fill: #f44336;" text="INFORMAÇÕES DO CLIENTE" textFill="RED" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -32,7 +34,7 @@
       </Label>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <TextField fx:id="tfSobrenome" layoutX="82.0" layoutY="40.0" />
             <TextField fx:id="tfEmail" layoutX="308.0" layoutY="40.0" />
@@ -67,12 +69,52 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button cancelButton="true" defaultButton="true" mnemonicParsing="false" onAction="#cancelarCadastro" text="Cancelar" />
-            <Button layoutX="535.0" layoutY="18.0" mnemonicParsing="false" onAction="#salvarCliente" text="Salvar" />
+          <Button cancelButton="true" defaultButton="true" mnemonicParsing="false" onAction="#fechar" text="Fechar" />
         </buttons>
          <padding>
             <Insets right="10.0" />
          </padding>
       </ButtonBar>
    </bottom>
+   <right>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tvCompras" layoutY="93.0" prefHeight="200.0" AnchorPane.leftAnchor="10.0">
+              <columns>
+                <TableColumn fx:id="tcCodigo" prefWidth="75.0" text="Codigo" />
+                <TableColumn fx:id="tcTotal" prefWidth="75.0" text="Total" />
+                  <TableColumn fx:id="tcData" prefWidth="74.99993896484375" text="Data" />
+                  <TableColumn fx:id="tcPago" prefWidth="75.0" text="Pago" />
+              </columns>
+            </TableView>
+            <Label layoutX="18.0" layoutY="8.0" text="Total Devendo: " />
+            <Label layoutX="26.0" layoutY="38.0" text="Total já pago:" />
+            <Label layoutX="69.0" layoutY="71.0" text="Total:" />
+            <Label fx:id="lblDevendo" layoutX="117.0" layoutY="8.0" style="-fx-text-fill: #FF8A65;" text="R$ 0.00">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label id="precoPago" fx:id="lblPago" layoutX="117.0" layoutY="38.0" style="-fx-font-weight: bold; -fx-text-fill: #66BB6A;" text="R$ 0.00">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label id="preco" fx:id="lblTotal" layoutX="117.0" layoutY="71.0" style="-fx-font-weight: bold; -fx-text-fill: #7986CB;" text="R$ 0.00">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button contentDisplay="TOP" layoutX="219.0" layoutY="16.0" mnemonicParsing="false" onAction="#pagarCompra" text="Pagar">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/pay.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
 </BorderPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="BOTTOM_RIGHT" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.ResultadosPesquisaClienteController">
+<VBox id="mainItem" alignment="BOTTOM_RIGHT" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetofinal.controladores.ResultadosPesquisaClienteController">
    <children>
       <TableView fx:id="tvClientes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="SOMETIMES">
         <columns>
@@ -23,7 +23,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </TableView>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ddd;">
+      <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button cancelButton="true" defaultButton="true" mnemonicParsing="false" text="Cancelar" />
             <Button mnemonicParsing="false" onAction="#selecionarCliente" text="Escolher" />

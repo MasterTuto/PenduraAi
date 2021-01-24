@@ -11,15 +11,14 @@ import javafx.beans.property.SimpleStringProperty;
 public class Cliente {
 	private static int counter = 0;
 	private SimpleIntegerProperty codigo;
-	private SimpleLongProperty cpf;
 	private SimpleObjectProperty<Calendar> dataNascimento;
-	private SimpleStringProperty nome, sobrenome, email, telefone, whatsapp;
+	private SimpleStringProperty nome, sobrenome, email, telefone, whatsapp, cpf;
 	private SimpleObjectProperty<Endereco> endereco;
 	private SimpleDoubleProperty limite;
 
 	public Cliente() {
 		this.codigo= new SimpleIntegerProperty(counter++);
-		this.cpf= new SimpleLongProperty(0);
+		this.cpf= new SimpleStringProperty("");
 		this.nome= new SimpleStringProperty("");
 		this.dataNascimento= new SimpleObjectProperty<>(null);
 		this.sobrenome= new SimpleStringProperty("");
@@ -30,11 +29,11 @@ public class Cliente {
 		this.limite= new SimpleDoubleProperty(500.0);
 	}
 
-	public Cliente(long cpf, String nome, Calendar dataNascimento, String sobrenome, String email, String telefone,
+	public Cliente(String cpf, String nome, Calendar dataNascimento, String sobrenome, String email, String telefone,
 				   String whatsapp, Endereco endereco, double limite) {
 
 		this.codigo= new SimpleIntegerProperty(counter++);
-		this.cpf= new SimpleLongProperty(cpf);
+		this.cpf= new SimpleStringProperty(cpf);
 		this.nome= new SimpleStringProperty(nome);
 		this.dataNascimento= new SimpleObjectProperty<>(dataNascimento);
 		this.sobrenome= new SimpleStringProperty(sobrenome);
@@ -54,7 +53,7 @@ public class Cliente {
 		return nome.get() + " " + sobrenome.get();
 	}
 
-	public long getCpf() {
+	public String getCpf() {
 		return cpf.get();
 	}
 
@@ -79,22 +78,29 @@ public class Cliente {
 	public String getTelefone() {
 		return telefone.get();
 	}
-
+	
 	public String getWhatsapp() {
 		return whatsapp.get();
 	}
-
+	
 	public String getEndereco() {
 		return endereco.get().toString();
 	}
 
+	public Endereco getEnderecoObj() {
+		return endereco.get();
+	}
+	
+	public Calendar getDataNascimentoObj() {
+		return dataNascimento.get();
+	}
 	public double getLimite() {
 		return limite.get();
 	}
 
 	// Setters
 
-	public void setCpf(long novoCpf) {
+	public void setCpf(String novoCpf) {
 		cpf.set(novoCpf);
 	}
 
@@ -134,4 +140,5 @@ public class Cliente {
 	public void decrementarContador() {
 		counter--;
 	}
+
 }

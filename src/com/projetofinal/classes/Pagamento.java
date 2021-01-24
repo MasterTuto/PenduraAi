@@ -64,7 +64,7 @@ public class Pagamento {
 
 	@Override
 	public String toString() {
-		return meio.get() == 1 ? "Credito (" : (meio.get() == 2 ? "Debito (" : "Dinheiro (") + (Integer.toString(numeroDeParcelas.get())) + ")";
+		return (meio.get() == 1 ? "Credito (" : (meio.get() == 2 ? "Debito (" : "Dinheiro (")) + (Integer.toString(numeroDeParcelas.get())) + ")";
 	}
 
 	public void decrementarContador() {

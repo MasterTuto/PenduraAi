@@ -82,7 +82,7 @@ public class Endereco {
 
 	@Override
 	public String toString() {
-		return rua + ", nº " + numeroCasa + ". " + bairro + ", " + municipio + " - " + estado;
+		return rua.get() + ", nº " + numeroCasa.get() + ". " + bairro.get() + ", " + municipio.get() + " - " + estado.get();
 	}
 
 	public void decrementarContador() {

@@ -6,6 +6,8 @@
 
 package com.projetofinal;
 
+import com.projetofinal.config.Config;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,7 +24,11 @@ public class Main extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("/com/projetofinal/gui/Main.fxml"));
 		Scene scene = new Scene(root);
 
+		if (Config.getDarkMode())
+            scene.getStylesheets().add("/com/projetofinal/styles/main.css");
+
 		primaryStage.setTitle("PenduraAi");
+		primaryStage.setMaximized(true);
 		primaryStage.setMinHeight(500);
 		primaryStage.setMinWidth(620);
 		primaryStage.setScene(scene);
