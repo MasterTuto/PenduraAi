@@ -24,7 +24,7 @@ Tela inicial do programa, é o que aparece primeiro para o usuário.
 <img src="https://github.com/MasterTuto/PenduraAi/raw/main/readme/main.png" alt="Tela principal" width="500px">
 
 ### Vendas
-Nessa tela, é possível adicionar, ver informações  remover vendas, respectivamente, as duas telas de catálogo é possível, na caixa bem abaixo, filtrar os itens do catálogo por seus atributos (como nome, marca, cpf, sobrenome, endereço, data... a depender do item)
+Nessa tela, é possível adicionar, ver informações e remover vendas, respectivamente. Nas três telas de catálogo é possível, na caixa de texto bem abaixo, filtrar os itens do catálogo por seus atributos (como nome, marca, cpf, sobrenome, endereço, data... a depender do item)
 
 <img src="https://github.com/MasterTuto/PenduraAi/raw/main/readme/leastmain.png" alt="Catalogo de Vendas" width="500px">
 
